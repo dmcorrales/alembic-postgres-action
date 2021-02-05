@@ -1,0 +1,14 @@
+name: 'Flyway Postgres Migration'
+description: 'Run migrations using your Github Action'
+inputs:
+  post_migration_bash_sha:
+    description: 'Bash file in base64 to run after migration'
+    required: false
+    default: ''
+  testing_testing:
+    description: 'Bash file in base64 to run after migration'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
