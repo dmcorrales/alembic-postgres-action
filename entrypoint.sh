@@ -7,7 +7,8 @@ export OLD_VERSION="$(alembic current | awk '{print $1}' )"
 export NEW_VERSION="$(alembic heads | awk '{print $1}')"
 export PYTHONPATH=app/
 echo "$OLD_VERSION ------- $NEW_VERSION"
-
+pwd
+ls
 if [ "$OLD_VERSION" = "" ];
   then
     echo "FIRST MIGRATION"
