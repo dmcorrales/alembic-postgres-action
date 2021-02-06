@@ -5,20 +5,20 @@ pipenv install --system
 pipenv install --dev --system
 export OLD_VERSION="$(alembic current | awk '{print $1}' )"
 export NEW_VERSION="$(alembic heads | awk '{print $1}')"
-export PYTHONPATH=app/
+export PYTHONPATH=/app/
 echo "$OLD_VERSION ------- $NEW_VERSION"
 pwd
 ls
 if [ "$OLD_VERSION" = "" ];
   then
     echo "FIRST MIGRATION"
-    alembic upgrade "$NEW_VERSION" --sql > flyway/db/Vbo_"$NEW_VERSION".sql
+    alembic upgrade "$NEW_VERSION" --sql > /flyway/db/Vbo_"$NEW_VERSION".sql
 
 else
   if [ "$OLD_VERSION" = "$NEW_VERSION" ];
   then
     echo "NO MIGRATIONS"
   else
-    alembic upgrade "$OLD_VERSION":"$NEW_VERSION"  --sql > flyway/db/Vbo_"$OLD_VERSION"_"$NEW_VERSION".sql
+    alembic upgrade "$OLD_VERSION":"$NEW_VERSION"  --sql > /flyway/db/Vbo_"$OLD_VERSION"_"$NEW_VERSION".sql
   fi
 fi
