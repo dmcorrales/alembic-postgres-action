@@ -13,6 +13,10 @@ inputs:
     description: 'Host for flyway connection'
     required: true
     default: ''
+  db_url:
+    description: 'Host for general connection'
+    required: true
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
