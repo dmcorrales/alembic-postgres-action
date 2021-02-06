@@ -11,13 +11,13 @@ echo "$OLD_VERSION ------- $NEW_VERSION"
 if [ "$OLD_VERSION" = "" ];
   then
     echo "FIRST MIGRATION"
-    alembic upgrade "$NEW_VERSION" --sql > app/migrations/flyway/db/Vbo_"$NEW_VERSION".sql
+    alembic upgrade "$NEW_VERSION" --sql > flyway/db/Vbo_"$NEW_VERSION".sql
 
 else
   if [ "$OLD_VERSION" = "$NEW_VERSION" ];
   then
     echo "NO MIGRATIONS"
   else
-    alembic upgrade "$OLD_VERSION":"$NEW_VERSION"  --sql > app/migrations/flyway/db/Vbo_"$OLD_VERSION"_"$NEW_VERSION".sql
+    alembic upgrade "$OLD_VERSION":"$NEW_VERSION"  --sql > flyway/db/Vbo_"$OLD_VERSION"_"$NEW_VERSION".sql
   fi
 fi
