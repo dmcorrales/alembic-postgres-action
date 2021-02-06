@@ -5,16 +5,9 @@ pipenv install --system
 pipenv install --dev --system
 export OLD_VERSION="$(alembic current | awk '{print $1}' )"
 export NEW_VERSION="$(alembic heads | awk '{print $1}')"
-export PYTHONPATH=/app/
+export PYTHONPATH=.
 echo "$OLD_VERSION ------- $NEW_VERSION"
-pwd
-ls
-cd flyway
-pwd
-ls
-cd db
-pwd
-ls
+
 if [ "$OLD_VERSION" = "" ];
   then
     echo "FIRST MIGRATION"
