@@ -5,7 +5,7 @@ pipenv install --system
 pipenv install --dev --system
 export OLD_VERSION="$(alembic current | awk '{print $1}' )"
 export NEW_VERSION="$(alembic heads | awk '{print $1}')"
-export SQLALCHEMY_DB_URL=$INPUT_DB_URL
+export SQLALCHEMY_DB_URL=postgresql://$INPUT_FLYWAY_USER:$INPUT_FLYWAY_PASS@$INPUT_FLYWAY_HOST/ebdb
 export PYTHONPATH=.
 echo "$OLD_VERSION ------- $NEW_VERSION"
 
