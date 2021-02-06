@@ -9,7 +9,7 @@ inputs:
     description: 'Password for flyway connection'
     required: true
     default: ''
-  db_host:
+  flyway_host:
     description: 'Host for flyway connection'
     required: true
     default: ''
