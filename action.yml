@@ -1,13 +1,17 @@
-name: 'Flyway Postgres Migration'
+name: 'From alembic to flyway - Postgres Migration'
 description: 'Run migrations using your Github Action'
 inputs:
-  post_migration_bash_sha:
-    description: 'Bash file in base64 to run after migration'
-    required: false
+  flyway_user:
+    description: 'User for flyway connection'
+    required: true
     default: ''
-  testing_testing:
-    description: 'Bash file in base64 to run after migration'
-    required: false
+  flyway_pass:
+    description: 'Password for flyway connection'
+    required: true
+    default: ''
+  db_host:
+    description: 'Host for flyway connection'
+    required: true
     default: ''
 runs:
   using: 'docker'
